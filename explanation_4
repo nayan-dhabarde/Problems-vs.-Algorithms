@@ -1,0 +1,6 @@
+## Dutch National Flag Problem
+
+Idea was to treat the array as 3 arrays starting at three different indices, where low index represents where 0's would start same for other twos and later fill them with the values.
+
+Efficiency: O(n)
+We are iterating over the input array only once and hence the time complexity is O(n)

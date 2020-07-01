@@ -1,0 +1,17 @@
+## HTTPRouter using a Trie
+
+Idea is to use the same technique used while using Trie for autocomplete.
+At first I used python string split() function, observed that it cannot handle trailing slash.
+Looked on the internet to find time complexity for string.split(), observed that it takes O(N) and created an own implementation which takes similar time and handles trailing slash.
+
+
+Efficiency:
+Insert:
+1. We are splitting the path string which takes O(A)
+2. We are traversing over this elements which were split which takes O(B)
+Thus total time complexity is O(A + B) for insert
+
+Lookup:
+1. We are splitting the path string which takes O(A)
+2. We are traversing over this elements which were split which takes O(B)
+Thus total time complexity is O(A + B) for Lookup

@@ -1,0 +1,6 @@
+## Finding the Square Root of an Integer
+
+Used binary search to recursively search between values less than the number of which square root is needed
+
+Efficiency: O(log(n))
+As we are using binary search for this operation the time complexity is O(log(n))

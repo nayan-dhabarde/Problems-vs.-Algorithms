@@ -1,0 +1,5 @@
+## Max and Min in a Unsorted Array
+
+Created two variables and updated them by comparing to each other element in one traversal
+
+Efficiency: O(n)

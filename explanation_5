@@ -1,0 +1,14 @@
+## Autocomplete with Tries
+
+Built the trie structure for storing a word, following is the breakdown of description for different methods:
+1. insert - We iterate over characters of the array, check if the first key is in the children (dictionary) of root node, if not we add it.
+            We repeat the process for each char with targetting the specific key in children
+2. find - We iterate over characters of the array, check if the first key is in the children (dictionary) of root node, if not we return None.
+           If present, we perform similar operation for next characters until we hit the last character
+3. get_suffixes - For a given prefix node, we recursively traverse all of it sub nodes and build suffix_strings and add them to the list when we have the is_word flag set which was set while inserting
+
+
+Efficiency:
+1. insert - As we are iterating over all the characters in the input string of length n. The time complexity is O(n)
+1. find - Again, as we are iterating over all the characters in the input string of length n. The time complexity is O(n)
+1. get_suffixes - As we are visiting each node once the time complexity is O(n)

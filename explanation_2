@@ -1,0 +1,11 @@
+## Search in a Rotated Sorted Array
+
+First tried to modify the conditions in the binary search in order to search element in rotated sorted array.
+After failing on multiple attempts and trying different conditions for selecting the mid point, used a method to find the pivot (end of non sorted list)
+so that it is easier to search with a point of rotation
+
+Efficiency: O(log(n))
+The method rotated_array_search() is the entry point.
+It calls a method find_pivot() which uses a method similar to binary search to find the pivot and hence takes O(lon(n)).
+After getting pivot, we again use a method similar to binary search which takes O(log(n)).
+Thus total time complexity is O(log(n)).

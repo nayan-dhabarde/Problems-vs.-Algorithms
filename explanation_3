@@ -1,0 +1,10 @@
+## Rearrange Array Elements
+
+After looking at the sample solutions, observed that pairs of combinations of alternate digits will give the the solution if the array is sorted.
+Used quick sort to sort the elements as it is more efficient in time and space complexity being in-place sorting algorithm
+
+Efficiency: O(nlog(n))
+
+The method quick_sort() takes O(nlog(n)).
+After this we iterate through the array once which takes O(n)
+Thus resultant time complexity is O(n) + O(nlog(n)) = O(nlog(n))
