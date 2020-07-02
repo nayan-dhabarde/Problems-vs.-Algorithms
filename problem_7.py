@@ -55,17 +55,23 @@ class RouteTrieNode:
 # The Router class will wrap the Trie and handle
 class Router:
     def __init__(self, root_handler, not_found_handler):
+        self.invalid_path_handler = "invalid path handler"
         # Create a new RouteTrie for holding our routes
         # You could also add a handler for 404 page not found responses as well!
         self.router = RouteTrie(root_handler, not_found_handler)
 
     def add_handler(self, path, handler):
+        if path is None or path == "":
+            return
+
         # Add a handler for a path
         # You will need to split the path and pass the pass parts
         # as a list to the RouteTrie
         self.router.insert(self.split_path(path), handler)
 
     def lookup(self, path):
+        if path is None or path == "":
+            return self.invalid_path_handler
         # lookup path (by parts) and return the associated handler
         # you can return None if it's not found or
         # return the "not found" handler if you added one
@@ -74,8 +80,6 @@ class Router:
         return self.router.find(self.split_path(path))
 
     def split_path(self, path):
-        if path is None and path == "":
-            return None
 
         output_list = []
         comp = ""
@@ -110,3 +114,14 @@ print(router.lookup("/home")) # should print 'not found handler' or None if you 
 print(router.lookup("/home/about")) # should print 'about handler'
 print(router.lookup("/home/about/")) # should print 'about handler' or None if you did not handle trailing slashes
 print(router.lookup("/home/about/me")) # should print 'not found handler' or None if you did not implement one
+
+## Edge cases
+print(router.lookup("/notpresent")) # should print 'not found handler' or None if you did not implement one
+print(router.lookup(None)) # should print 'invalid path handler'
+router.add_handler("", "about handler")  # will not add a route
+router.add_handler(None, "about handler")  # will not add a route
+print(router.lookup("")) # should print 'invalid path handler'
+
+
+
+

@@ -5,6 +5,13 @@ def get_min_max(ints):
     Args:
        ints(list): list of integers containing one or more integers
     """
+
+    if ints is None:
+        return None
+
+    if len(ints) == 0:
+        return None
+
     min = ints[0]
     max = ints[0]
 
@@ -29,3 +36,14 @@ print ("Pass" if ((0, 10) == get_min_max(l)) else "Fail")   # returns Fail
 random.shuffle(l)
 
 print ("Pass" if ((0, 9) == get_min_max(l)) else "Fail")   # returns Pass
+
+## Edge cases
+
+print (get_min_max([]))   # returns None
+
+print(get_min_max([0, 1]))   # returns 0, 1
+
+print(get_min_max([1]))   # returns 1, 1
+
+print(get_min_max(None))   # returns None
+

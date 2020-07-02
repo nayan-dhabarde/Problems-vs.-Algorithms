@@ -1,8 +1,15 @@
 def rotated_array_search(input_list, number):
+
+    if len(input_list) == 0:
+        return -1
+
+    if number is None or input_list is None:
+        return -1
+
     pivot = find_pivot(input_list, 0, len(input_list) - 1)
 
     if pivot == -1:
-        rotated_binary_search(input_list, number)
+        return rotated_binary_search(input_list, number, 0, len(input_list) - 1)
 
     if input_list[pivot] == number:
         return pivot
@@ -41,7 +48,7 @@ def rotated_binary_search(input_list, number, start, end):
 
     mid_element = input_list[mid]
 
-    if end >= start:
+    if end > start:
         if mid_element == number:
             return mid
         elif number > mid_element:
@@ -70,7 +77,8 @@ def test_function(test_case):
 
 test_function([[6, 7, 8, 9, 10, 1, 2, 3, 4], 6])    # prints Pass
 test_function([[6, 7, 8, 9, 10, 1, 2, 3, 4], 1])    # prints Pass
-test_function([[4, 6, 7, 8, 9, 10, 1, 2, 3], 10])   # prints Pass
 test_function([[6, 7, 8, 1, 2, 3, 4], 8])           # prints Pass
-test_function([[6, 7, 8, 1, 2, 3, 4], 1])           # prints Pass
 test_function([[6, 7, 8, 1, 2, 3, 4], 10])          # prints Pass
+test_function([[6, 7, 8, 1, 2, 3, 4], None])          # prints Pass
+test_function([[0], 1])          # prints Pass
+test_function([[], 1])          # prints Pass

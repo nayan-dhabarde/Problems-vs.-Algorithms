@@ -3,6 +3,7 @@
 def quick_sort(input_list):
     sort(input_list, 0, len(input_list) - 1)
 
+
 def sort(arr, start, end):
     if end <= start:
         return
